@@ -34,7 +34,7 @@ app.get('/style', (req, res) => {
 
 let movies =[]
 
-app.post('/api/student', (req, res) => {
+app.post('/api/movie', (req, res) => {
     let {name} = req.body
     name = name.trim()
 
