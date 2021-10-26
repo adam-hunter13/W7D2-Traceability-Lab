@@ -16,7 +16,7 @@ app.get('/', (req,res) => {
     rollbar.info('html file served successfully')
 })
 
-app.get('/style', (req, res) => {
+app.get('/css', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
 
