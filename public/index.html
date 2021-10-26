@@ -22,13 +22,13 @@
 
         function submitHandler(e){
             e.preventDefault()
-            axios.post('/api/student', {name: titleInput.value, })
+            axios.post('/api/movie', {name: titleInput.value, })
                 .then(res => {
                     container.innerHTML = ''
                     titleInput.value = ''
 
-                    res.data.forEach(studentName => {
-                        container.innerHTML += `<p>${studentName}</p>`
+                    res.data.forEach(movieName => {
+                        container.innerHTML += `<p>${movieName}</p>`
                     })
                 })
                 .catch(err => {
