@@ -33,6 +33,7 @@ app.get('/css', (req, res) => {
 
 
 let movies =[]
+let destinations = []
 
 app.post('/api/movie', (req, res) => {
     let {name} = req.body
@@ -50,6 +51,26 @@ app.post('/api/movie', (req, res) => {
     } else{
         rollbar.critical('Movie already exists.')
         res.status(400).send('that movie already exists')
+    }
+})
+
+
+app.post('/api/vaction', (req, res) => {
+    let {name} = req.body
+    name = name.trim()
+
+    const index = destinations.findIndex(vacationName => vacationName === name)
+
+    if(index === -1 && name !== ''){
+        destinations.push(name)
+        rollbar.log('Vacation added successfully', {author: 'Adam', type: 'manual entry'})
+        res.status(200).send(movies)
+    } else if(name === '') {
+        rollbar.error('No destination given')
+        res.status(400).send('Must provide a destination.')
+    } else{
+        rollbar.critical('Destination already exists.')
+        res.status(400).send('that destination already exists')
     }
 })
 
