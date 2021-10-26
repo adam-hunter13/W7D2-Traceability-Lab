@@ -38,7 +38,7 @@ app.post('/api/movie', (req, res) => {
     let {name} = req.body
     name = name.trim()
 
-    const index = names.findIndex(movieName => movieName === name)
+    const index = movies.findIndex(movieName => movieName === name)
 
     if(index === -1 && name !== ''){
         movies.push(name)
