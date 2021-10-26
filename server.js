@@ -26,6 +26,7 @@ try {
   } catch (error) {
     console.error(error);
     rollbar.warning('non-existent function')
+    rollbar.critical('Critical Warning: Go home and rethink your life.')
     // expected output: ReferenceError: nonExistentFunction is not defined
     // Note - error messages will vary depending on browser
   }
