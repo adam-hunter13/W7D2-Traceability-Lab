@@ -8,13 +8,32 @@ aside {
     right: 10px;
 }
 
-.body{
+body{
     background-color: skyblue;
-    color:slategrey;
+    color:rgb(58, 58, 58);
+    /* display: flex;
+    justify-content: center; */
+    /* margin: 100%; */
+}
+
+h1{
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 p{
     color: red;
+}
+
+button{
+border-radius: 25px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.box1 {
+    display: flex;
+    justify-content: center;
 }
