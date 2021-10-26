@@ -20,6 +20,17 @@ app.get('/style', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
 
+
+try {
+    nonExistentFunction();
+  } catch (error) {
+    console.error(error);
+    rollbar.warning('non-existent function')
+    // expected output: ReferenceError: nonExistentFunction is not defined
+    // Note - error messages will vary depending on browser
+  }
+
+
 // let students =[]
 
 // app.post('/api/student', (req, res) => {
