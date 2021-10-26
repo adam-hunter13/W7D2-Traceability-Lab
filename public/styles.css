@@ -17,16 +17,20 @@ body{
 }
 
 h1{
+    color: rgb(35, 35, 35);
     display: flex;
     justify-content: center;
 }
 
 p{
-    color: red;
+    color: rgb(35, 35, 35);
+    display: flex;
+    justify-content: center;
 }
 
 button{
 border-radius: 25px;
+box-shadow: 5px 2.5px rgb(35, 35, 35);
 }
 
 button:hover {
