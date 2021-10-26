@@ -21,37 +21,37 @@ app.get('/style', (req, res) => {
 })
 
 
-try {
-    nonExistentFunction();
-  } catch (error) {
-    console.error(error);
-    rollbar.warning('non-existent function')
-    rollbar.critical('Critical Warning: Go home and rethink your life.')
-    // expected output: ReferenceError: nonExistentFunction is not defined
-    // Note - error messages will vary depending on browser
-  }
+// try {
+//     nonExistentFunction();
+//   } catch (error) {
+//     console.error(error);
+//     rollbar.warning('non-existent function')
+//     rollbar.critical('Critical Warning: Go home and rethink your life.')
+//     // expected output: ReferenceError: nonExistentFunction is not defined
+//     // Note - error messages will vary depending on browser
+//   }
 
 
-// let students =[]
+let movies =[]
 
-// app.post('/api/student', (req, res) => {
-//     let {name} = req.body
-//     name = name.trim()
+app.post('/api/student', (req, res) => {
+    let {name} = req.body
+    name = name.trim()
 
-//     const index = students.findIndex(studentName => studentName === name)
+    const index = names.findIndex(movieName => movieName === name)
 
-//     if(index === -1 && name !== ''){
-//         students.push(name)
-//         rollbar.log('Student added successfully', {author: 'Adam', type: 'manual entry'})
-//         res.status(200).send(students)
-//     } else if(name === '') {
-//         rollbar.error('No name given')
-//         res.status(400).send('Must provide a name.')
-//     } else{
-//         rollbar.critical('Student already exists.')
-//         res.status(400).send('that student already exists')
-//     }
-// })
+    if(index === -1 && name !== ''){
+        movies.push(name)
+        rollbar.log('Movie added successfully', {author: 'Adam', type: 'manual entry'})
+        res.status(200).send(movies)
+    } else if(name === '') {
+        rollbar.error('No movie title given')
+        res.status(400).send('Must provide a movie title.')
+    } else{
+        rollbar.critical('Movie already exists.')
+        res.status(400).send('that movie already exists')
+    }
+})
 
 app.use(rollbar.errorHandler())
 
